@@ -1,40 +1,26 @@
+@media screen and (min-width: 800px) {
+  html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+  }
+}
+
 body {
-  background: rgb(98, 133, 150);
-  font-size: 22px;
-  padding: 40px;
+  background: rgba(85, 132, 177, 0.5);
+}
+ul {
+  list-style: none;
 }
 
-section {
-  margin-bottom: 40px;
+label {
+  margin-right: 40px;
 }
 
-li {
-  width: 600px;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: space-between;
-}
-
-.container {
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-button {
-  border-radius: 10px;
-  background: #ffe3cb;
-}
-
-.btnSubmit {
+label .input {
   margin-left: 20px;
-  background: #d0dfff;
+  color: rgb(0, 0, 0);
 }
-
-input {
-  background: #b7b3c9;
-  border-radius: 5px;
-  font-size: 18px;
-  height: 40px;
+label {
+  font-size: 1em;
+  color: rgb(58, 58, 58);
 }

@@ -2,21 +2,22 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilter } from '../../redux/Contacts/contacts-selectors';
 import { filterContacts } from '../../redux/Contacts/contacts-acions'
+import { Input } from '@mui/material'
 
 function Filter() {
 
     const filter = useSelector(getFilter);
     const dispatch = useDispatch();
     return (
-        < label >
+        <label>
             Find contact by name
-            < input
+            <Input className="input"
                 type="text"
                 value={filter}
                 onChange={event => dispatch(filterContacts(event.target.value))}
             >
-            </input >
-        </label >
+            </Input>
+        </label>
 
     )
 };

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from '../../redux/Contacts/contacts-selectors';
 import { addContact } from '../../redux/Contacts/contacts-operations';
+import { Button, Input } from '@mui/material'
+
 
 function Form() {
 
@@ -31,9 +33,10 @@ function Form() {
             <section>
                 <form onSubmit={handleSubmit}>
                     <label>Name
-                        <input
+                        <Input className="input"
                             type="text"
                             autoComplete='off'
+                            autoFocus='true'
                             name="name"
                             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
@@ -42,8 +45,8 @@ function Form() {
                             onChange={e => setName(e.target.value)}
                         />
                     </label>
-                    <label>Number
-                        <input
+                    <label >Number
+                        <Input className="input"
                             type="tel"
                             autoComplete='off'
                             name="number"
@@ -54,10 +57,8 @@ function Form() {
                             onChange={e => setNumber(e.target.value)}
                         />
                     </label>
-                    <button className="btnSubmit" type='submit' disabled={!name || !number}>Add</button>
+                    <Button type='submit' variant="contained" disabled={!name || !number}>Add</Button>
                 </form>
-            </section>
-            <section>Contacts
             </section>
         </div>
     )

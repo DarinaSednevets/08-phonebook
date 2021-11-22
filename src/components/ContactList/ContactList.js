@@ -2,6 +2,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts, deleteContact } from '../../redux/Contacts/contacts-operations'
 import { getFilteredContacts } from '../../redux/Contacts/contacts-selectors'
 import { useEffect } from 'react';
+import {
+    Button,
+    TableContainer,
+    Table,
+    TableHead,
+    TableRow,
+    TableCell,
+    TableBody,
+} from '@mui/material'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+
+
 
 function ContactList() {
     const filteredContacts = useSelector(getFilteredContacts);
@@ -13,20 +25,40 @@ function ContactList() {
 
 
     return (
-        <ul>
-            {filteredContacts.map(({ id, name, number }) =>
-            (<li key={id} id={id}>
-                {name}:{number}
-                <button type="button"
-                    onClick={() => dispatch(deleteContact(id))}
-                >Delete
-                </button>
-            </li>))
-            }
-        </ul>
+        <div>
+            <TableContainer >
+                <Table sx={{ maxWidth: 600 }} size="small" align="center" aria-label="contacts" >
+                    <TableHead>
+                    </TableHead>
+
+                    <TableRow>
+                        <TableCell scope="col" align="left"></TableCell>
+                        <TableCell scope="col" align="left" size="md">Name</TableCell>
+                        <TableCell scope="col" align="left" size="md">Phone number</TableCell>
+                    </TableRow>
+                    <TableBody >
+                        {filteredContacts.map(({ id, name, number }) =>
+                        (<TableRow key={id} id={id}>
+                            <TableCell >
+                                <Button
+                                    size="small"
+                                    color="error"
+                                    type="button"
+                                    onClick={() => dispatch(deleteContact(id))}
+                                ><DeleteForeverIcon size="small" />
+                                </Button>
+
+
+                            </TableCell>
+                            <TableCell>{name}</TableCell>
+                            <TableCell>{number}</TableCell>
+                        </TableRow>))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </div>
     )
 }
 
 
 export default ContactList;
-
